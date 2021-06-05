@@ -8,8 +8,10 @@ def q1(s, options):
     tagged = nltk.pos_tag(tokens)
     tagged=dict(tagged)
     
+    for i in range(len(options)):
+        option[i]=option[i].lower()
+    s=s.lower()
     words={"positive":["have","suffer","got","diagnose"],"negative":["no","not","don't","do not"]}
-    options=["thyroid","cancer","others","none","diabetes", 'high blood pressure']
     ans=[]
     s1=[]
     var=0
