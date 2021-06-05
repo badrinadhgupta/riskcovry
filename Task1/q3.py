@@ -3,13 +3,14 @@ months = ['january', 'february', 'march', 'april', 'may',
           'october', 'november', 'december', 'jan',
           'feb', 'mar', 'apr', '', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 def q3(s,options):
+    s=s.lower()
     s = s.split(' ')
     am = ''
     dd, dm, dy = 0, 0, 0
     
     for i in range(len(options)):
         option[i]=option[i].lower()
-    s=s.lower()
+    
     
     for i in s:
         if i in months:
