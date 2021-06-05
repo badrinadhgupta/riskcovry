@@ -10,6 +10,10 @@ def q2(s,options):
     for j in s:
        if ord(j) in range(48, 57):
           req += j
+            
+    if 'lakh' in s:
+        req += str(10**5)[1:]
+            
     lt, gt = 0, 0
     cur_num = ''
     r1, r2 = '', ''
@@ -35,14 +39,22 @@ def q2(s,options):
              if ord(j) in range(48, 57) and d==1:
                 r2+=j
        if lt==1:
+          if 'lakh' in options[i]:
+                cur_num += str(10 ** 5)[1:] 
           if int(req) < int(cur_num):
              ans = options[i]
              break
        if gt==1:
+          if 'lakh' in options[i]:
+                cur_num += str(10 ** 5)[1:] 
           if int(req) >= int(cur_num):
              ans = options[i]
              break
        if d==1:
+          if 'lakh' in options[i]:
+                r1 += str(10 ** 5)[1:]
+          if 'lakh' in options[i]:
+                r2 += str(10 ** 5)[1:]
           if int(r1)<=int(req) and int(r2)>int(req):
              ans = options[i]
     
