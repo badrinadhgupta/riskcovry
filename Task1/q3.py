@@ -9,7 +9,7 @@ def q3(s,options):
     dd, dm, dy = 0, 0, 0
     
     for i in range(len(options)):
-        option[i]=option[i].lower()
+        options[i]=options[i].lower()
     
     
     for i in s:
