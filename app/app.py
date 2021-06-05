@@ -9,17 +9,8 @@ from q2 import q2
 from q3 import q3
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 CORS(app)
 api = Api(app)
-
-class CommandException(Exception):
-    """Exception that is raised if calling an external command fails"""
-    def __init__(self, command):
-        self.command = command
-    def __str__(self):
-        return self.command
-
 
 class ApiCalls(Resource):
     def get(self):
@@ -93,7 +84,7 @@ api.add_resource(ApiCalls, '/')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(threaded=True, port=5000)
 
 
 app.run()
