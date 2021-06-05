@@ -30,7 +30,18 @@ class ApiCalls(Resource):
         decode_string = base64.b64decode(baudio+b"==")
         ogg_file = open("temp.ogg", "wb")
         ogg_file.write(decode_string)
-        return callSpecificQuestion(ogg_file,question_key,options)
+        ogg_file1 = open("temp.ogg", "rb")
+        return callSpecificQuestion(ogg_file1,question_key,options)
+    def post(self):
+        audio = request.json.get("audio")
+        question_key = request.json.get("question_key")
+        options = request.json.get("options")
+        baudio = bytes(audio, 'utf-8')
+        decode_string = base64.b64decode(baudio+b"==")
+        ogg_file = open("temp.ogg", "wb")
+        ogg_file.write(decode_string)
+        ogg_file1 = open("temp.ogg", "rb")
+        return callSpecificQuestion(ogg_file1,question_key,options)
 
     
     
@@ -45,7 +56,7 @@ def form_example():
         options = eval(request.form.get("options"))
         answer = callSpecificQuestion(audio,question_key,options)
         return '''
-                  <h1>The answer is: {}</h1>'''.format(answer)
+                  <h1>{}</h1>'''.format(answer)
 
     # otherwise handle the GET request
     return '''
