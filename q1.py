@@ -1,6 +1,5 @@
 import nltk
 def q1(s, options):
-    print(type(options))
     #s=s.lower()
     tokens = nltk.word_tokenize(s)
     tagged = nltk.pos_tag(tokens)

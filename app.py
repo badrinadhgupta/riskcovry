@@ -70,7 +70,7 @@ def callSpecificQuestion(audio,question_key,options):
     with sr.AudioFile(read_file) as source:
         audio_data = r.record(source)
         t=r.recognize_google(audio_data)
-        print(t)
+        print("Speech Recognition Audio : "+t)
         if(question_key=="q1"):
             return {"answers":q1(t,options)}
         elif(question_key=="q2"):
@@ -84,7 +84,7 @@ api.add_resource(ApiCalls, '/')
 
 
 if __name__ == '__main__':
-    app.run(threaded=True, port=process.env.PORT)
+    app.run(threaded=True, port=5000)
 
 
 

@@ -57,7 +57,6 @@ def q3(s,options):
     if am != '':
         for i in range(len(months)):
             if months[i] == am:
-                print(i)
                 dm = (i+1) % 12
                 break
     t = ''
@@ -69,5 +68,4 @@ def q3(s,options):
         t1 = '0'
     
     ans = t1+str(dd)+'/'+t+str(dm)+'/'+str(dy)
-    print(s)
     return ans
