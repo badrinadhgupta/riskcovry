@@ -8,7 +8,7 @@ def q2(s,options):
     
     req = ''
     for j in s:
-       if ord(j) in range(48, 57):
+       if ord(j) in range(48, 58):
           req += j
             
     if 'lakh' in s:
@@ -23,20 +23,20 @@ def q2(s,options):
        if '<' in options[i]:
           lt = 1
           for j in options[i]:
-             if ord(j) in range(48, 57):
+             if ord(j) in range(48, 58):
                 cur_num+= j
        elif '>' in options[i]:
           gt = 1
           for j in options[i]:
-             if ord(j) in range(48, 57):
+             if ord(j) in range(48, 58):
                 cur_num+= j
        else:
           for j in options[i]:
-             if ord(j) in range(48, 57) and d==0:
+             if ord(j) in range(48, 58) and d==0:
                 r1+=j
              if j=='-':
                 d=1
-             if ord(j) in range(48, 57) and d==1:
+             if ord(j) in range(48, 58) and d==1:
                 r2+=j
        if lt==1:
           if 'lakh' in options[i]:
