@@ -57,7 +57,7 @@ def form_example():
   <label for="fname">Options:</label>
   <input type="text" id="options" name="options" value=""><br><br>
   <label for="img">Upload audio file:</label>
-  <input type="file" id="audio" name="audio" accept="audio/*"><br><br>
+  <input type="file" id="audio" name="audio" accept="audio/ogg"><br><br>
   <input type="submit" value="Submit">
 </form> 
            </form>'''
