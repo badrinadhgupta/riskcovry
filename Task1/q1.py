@@ -2,14 +2,14 @@ import nltk
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 def q1(s, options):
-    s="cancer, high blood pressure"
+    print(type(options))
     #s=s.lower()
     tokens = nltk.word_tokenize(s)
     tagged = nltk.pos_tag(tokens)
     tagged=dict(tagged)
     
     for i in range(len(options)):
-        option[i]=option[i].lower()
+        options[i]=options[i].lower()
     s=s.lower()
     words={"positive":["have","suffer","got","diagnose"],"negative":["no","not","don't","do not"]}
     ans=[]
@@ -88,4 +88,4 @@ def q1(s, options):
     	ans.append("None")
     
     final_ans.extend(ans)
-    print(final_ans)
+    return final_ans

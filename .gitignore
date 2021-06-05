@@ -3,3 +3,4 @@
 *.iml
 Task1/temp.ogg
 Task1/temp.wav
+*.pyc
