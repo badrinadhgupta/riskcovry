@@ -1,6 +1,9 @@
 def q2(s,options):
     s = s.split(' ')
     #options = ["<5lakh", "5lakh-15lakh", '15lakh-20lakh', '20lakh>']
+    for i in range(len(options)):
+        option[i]=option[i].lower()
+    s=s.lower()
     
     req = ''
     for j in s:
