@@ -4,81 +4,56 @@ print(sr.__version__)
 r = sr.Recognizer()
 file_audio = sr.AudioFile('Recording (3).wav')
 
-months = ['january', 'february', 'march', 'april', 'may',
-          'june', 'july', 'august', 'september',
-          'october', 'november', 'december', 'jan',
-          'feb', 'mar', 'apr', '', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-
 with file_audio as source:
    audio_text = r.record(source)
 
 s = r.recognize_google(audio_text)
-print(s)
-s = '1st of feb 2018'
 s = s.split(' ')
-am = ''
-dd, dm, dy = 0, 0, 0
+options = ["<5lakh", "5lakh-15lakh", '15lakh-20lakh', '20lakh>']
 
-for i in range(len(s)):
-    s[i] = s[i].lower()
+req = ''
+for j in s:
+   if ord(j) in range(48, 57):
+      req += j
+lt, gt = 0, 0
+cur_num = ''
+r1, r2 = '', ''
+d = 0
+ans = ''
+for i in range(len(options)):
+   if '<' in options[i]:
+      lt = 1
+      for j in options[i]:
+         if ord(j) in range(48, 57):
+            cur_num+= j
+   elif '>' in options[i]:
+      gt = 1
+      for j in options[i]:
+         if ord(j) in range(48, 57):
+            cur_num+= j
+   else:
+      for j in options[i]:
+         if ord(j) in range(48, 57) and d==0:
+            r1+=j
+         if j=='-':
+            d=1
+         if ord(j) in range(48, 57) and d==1:
+            r2+=j
+   if lt==1:
+      if int(req) < int(cur_num):
+         ans = options[i]
+         break
+   if gt==1:
+      if int(req) >= int(cur_num):
+         ans = options[i]
+         break
+   if d==1:
+      if int(r1)<=int(req) and int(r2)>int(req):
+         ans = options[i]
 
+   lt, gt, d = 0, 0, 0
+   r1, r2 = '', ''
+   cur_num = ''
 
-for i in s:
-    if i in months:
-        am = i
-    elif len(i)==3:
-        if (i[1:3]=='st' or i[1:3]=='nd' or i[1:3]=='rd') and 48<=ord(i[0])<=57:
-            dd = int(i[0])
-    elif len(i)==2 or len(i)==1:
-        try:
-            if dy==0:
-                if dd==0:
-                    dd = int(i)
-                elif dm ==0:
-                    dm = int(i)
-            else:
-                if dm==0:
-                    dm = int(i)
-                elif dd ==0:
-                    dd = int(i)
-        except:
-            pass
-    elif len(i)==4:
-        try:
-            dy = int(i)
-        except:
-            if dy == 0:
-                if dd == 0:
-                    dd = int(i[0:2])
-                elif dm == 0:
-                    dm = int(i[0:2])
-            else:
-                if dm == 0:
-                    dm = int(i[0:2])
-                elif dd == 0:
-                    dd = int(i[0:2])
-
-
-if dm>12 and dd < 13:
-    t = dm
-    dm = dd
-    dd = t
-
-
-if am != '':
-    for i in range(len(months)):
-        if months[i] == am:
-            print(i)
-            dm = (i+1) % 12
-            break
-t = ''
-if dm<10:
-    t = '0'
-
-t1 = ''
-if dd<10:
-    t1 = '0'
-
-ans = t1+str(dd)+'/'+t+str(dm)+'/'+str(dy)
-print(s)
 print(ans)
+
