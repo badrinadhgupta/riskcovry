@@ -87,6 +87,5 @@ if __name__ == '__main__':
     app.run(threaded=True, port=process.env.PORT)
 
 
-app.run()
 
 
