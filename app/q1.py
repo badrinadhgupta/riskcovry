@@ -1,6 +1,4 @@
 import nltk
-nltk.download('averaged_perceptron_tagger')
-nltk.download('punkt')
 def q1(s, options):
     print(type(options))
     #s=s.lower()
