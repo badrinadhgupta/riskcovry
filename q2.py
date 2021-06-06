@@ -70,5 +70,6 @@ def q2(s,options):
             f.append(o[j])
             print(o[j])
             break
+    print("Answer :",f)
     return f
     

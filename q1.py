@@ -92,4 +92,5 @@ def q1(s, options):
             if(options[j] == i):
                 f.append(o[j])
                 break
+    print("Answer :",f)
     return f
