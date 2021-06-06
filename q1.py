@@ -1,6 +1,7 @@
 import nltk
 def q1(s, options):
     #s=s.lower()
+    o = options[:]
     tokens = nltk.word_tokenize(s)
     tagged = nltk.pos_tag(tokens)
     tagged=dict(tagged)
@@ -80,9 +81,15 @@ def q1(s, options):
     		i+=1
     '''
     if "others" in options and t>0:
-    	ans.append("Others")
+    	ans.append("others")
     if "none" in options and len(ans)==0:
-    	ans.append("None")
+    	ans.append("none")
     
     final_ans.extend(ans)
-    return final_ans
+    f = []
+    for i in final_ans:
+        for j in range(0,len(options)):
+            if(options[j] == i):
+                f.append(o[j])
+                break
+    return f

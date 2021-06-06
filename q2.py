@@ -1,5 +1,6 @@
 def q2(s,options):
     s=s.lower()
+    o = options[:]
     #s = s.split(' ')
     #options = ["<5lakh", "5lakh-15lakh", '15lakh-20lakh', '20lakh>']
     for i in range(len(options)):
@@ -62,5 +63,12 @@ def q2(s,options):
        r1, r2 = '', ''
        cur_num = ''
     
-    return ans
+    f = []
+    i = ans
+    for j in range(0,len(options)):
+        if(options[j] == i):
+            f.append(o[j])
+            print(o[j])
+            break
+    return f
     

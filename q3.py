@@ -68,4 +68,4 @@ def q3(s,options):
         t1 = '0'
     
     ans = t1+str(dd)+'/'+t+str(dm)+'/'+str(dy)
-    return ans
+    return [ans]
