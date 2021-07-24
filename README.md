@@ -3,9 +3,9 @@
 ## Team : Code Jigglers
 
 ## Members:
-* Risiraj Dey
-* Santosh Vasisht
-* Akhil Eppa
+* Badri
+* Adarsh
+* Dhruv
 
 ## Task 1 : Get intents from Speech Recognition
 
